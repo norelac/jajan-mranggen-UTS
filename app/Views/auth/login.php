@@ -38,12 +38,12 @@
     </p>
 </div>
 
-<div class="mt-4 p-3 rounded-3" style="background:#FFF8F0; font-size:.8rem;">
+<!-- <div class="mt-4 p-3 rounded-3" style="background:#FFF8F0; font-size:.8rem;">
     <p class="mb-1 fw-600"><i class="fas fa-info-circle me-1" style="color:var(--primary)"></i><strong>Demo Akun:</strong></p>
     <p class="mb-0">🔴 Admin: <code>admin@jajanmranggen.com</code> / <code>admin123</code></p>
     <p class="mb-0">🟠 Penjual: <code>sari@jajanmranggen.com</code> / <code>penjual123</code></p>
     <p class="mb-0">🟢 Pembeli: <code>dewi@gmail.com</code> / <code>pembeli123</code></p>
-</div>
+</div> -->
 
 <script>
 document.getElementById('togglePwd').addEventListener('click', function() {

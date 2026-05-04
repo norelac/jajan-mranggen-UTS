@@ -1,18 +1,23 @@
-# CodeIgniter 4 Application Starter
+# 🍜 JajanMap - Platform Pencarian Tempat Makan & Jajanan
 
-## What is CodeIgniter?
+## Tentang JajanMap
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+**JajanMap** adalah platform berbasis web yang memudahkan Anda menemukan, menambahkan, dan mengulas tempat makan/jajanan di sekitar kampus atau area tertentu. 
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+### Fitur Utama:
+- 🗺️ **Geocoding Otomatis** - Lokasi tempat makan terintegrasi dengan peta interaktif
+- 🏷️ **Filter Berdasarkan Kategori & Tag** - Cari kuliner sesuai preferensi Anda
+- ⭐ **Sistem Rating & Review** - Bagikan pengalaman Anda dan baca ulasan pengguna lain
+- 🌍 **Integrasi OpenStreetMap Nominatim API** - Data lokasi real-time (gratis, unlimited)
+- 📍 **Navigasi Real-time** - Lihat rute menuju tempat tujuan
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## Teknologi yang Digunakan
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+- **Backend**: CodeIgniter 4 (PHP Framework)
+- **Database**: MySQL/MariaDB
+- **Frontend**: Bootstrap 5, Leaflet.js untuk Maps
+- **Mapping API**: OpenStreetMap Nominatim API
+- **Geocoding**: Reverse Geocoding untuk penentuan lokasi otomatis
 
 ## Installation & updates
 
