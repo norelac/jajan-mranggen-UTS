@@ -1,8 +1,8 @@
-# 🍜 JajanMap - Platform Pencarian Tempat Makan & Jajanan
+# 🍜 JajanMranggen - Platform Pencarian Tempat Makan & Jajanan
 
-## Tentang JajanMap
+## Tentang JajanMranggen
 
-**JajanMap** adalah platform berbasis web yang memudahkan Anda menemukan, menambahkan, dan mengulas tempat makan/jajanan di sekitar kampus atau area tertentu. 
+**JajanMranggen** adalah platform berbasis web yang memudahkan Anda menemukan, menambahkan, dan mengulas tempat makan/jajanan di sekitar kampus atau area tertentu. 
 
 ### Fitur Utama:
 - 🗺️ **Geocoding Otomatis** - Lokasi tempat makan terintegrasi dengan peta interaktif
