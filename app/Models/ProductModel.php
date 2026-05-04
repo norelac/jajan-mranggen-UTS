@@ -16,7 +16,8 @@ class ProductModel extends Model
     protected $allowedFields = [
         'category_id', 'seller_id', 'name', 'slug',
         'description', 'price', 'stock', 'weight',
-        'image', 'status',
+        'image', 'status', 'latitude', 'longitude',
+        'address', 'geohash', 'average_rating', 'total_ratings',
     ];
 
     protected $useTimestamps = true;
@@ -107,4 +108,130 @@ class ProductModel extends Model
                         ->set('stock', "stock + {$qty}", false)
                         ->update();
     }
+
+    // ─── Geocoding Methods ──────────────────────────────────
+
+    /**
+     * Get products near a location
+     * @param float $latitude
+     * @param float $longitude
+     * @param float $radiusKm Distance in kilometers
+     */
+    public function getNearbyProducts(float $latitude, float $longitude, float $radiusKm = 5)
+    {
+        // Simple distance calculation using Haversine formula
+        $radiusEarth = 6371; // km
+
+        return $this->selectRaw(
+            "products.*,
+            categories.name as category_name,
+            users.full_name as seller_name,
+            ({$radiusEarth} * acos(
+                cos(radians({$latitude})) *
+                cos(radians(latitude)) *
+                cos(radians(longitude) - radians({$longitude})) +
+                sin(radians({$latitude})) *
+                sin(radians(latitude))
+            )) as distance"
+        )
+            ->join('categories', 'categories.id = products.category_id')
+            ->join('users', 'users.id = products.seller_id')
+            ->where('products.status', 'active')
+            ->where('products.latitude IS NOT NULL')
+            ->where('products.longitude IS NOT NULL')
+            ->havingRaw("distance <= {$radiusKm}")
+            ->orderBy('distance', 'ASC')
+            ->findAll();
+    }
+
+    /**
+     * Get products in a bounding box
+     */
+    public function getProductsInBounds($minLat, $minLng, $maxLat, $maxLng)
+    {
+        return $this->select('products.*, categories.name as category_name, users.full_name as seller_name')
+            ->join('categories', 'categories.id = products.category_id')
+            ->join('users', 'users.id = products.seller_id')
+            ->where('products.status', 'active')
+            ->where('products.latitude >=', $minLat)
+            ->where('products.latitude <=', $maxLat)
+            ->where('products.longitude >=', $minLng)
+            ->where('products.longitude <=', $maxLng)
+            ->findAll();
+    }
+
+    /**
+     * Update product location via Nominatim geocoding
+     */
+    public function updateLocationFromGeocoding(int $productId, string $address): bool
+    {
+        $locationService = new \App\Services\GeocodeService();
+        $coordinates = $locationService->getCoordinates($address);
+
+        if ($coordinates) {
+            return $this->update($productId, [
+                'latitude' => $coordinates['latitude'],
+                'longitude' => $coordinates['longitude'],
+                'address' => $coordinates['address'],
+                'geohash' => $coordinates['geohash'],
+            ]);
+        }
+
+        return false;
+    }
+
+    // ─── Rating Methods ──────────────────────────────────
+
+    /**
+     * Get product with ratings
+     */
+    public function getWithRatings($productId)
+    {
+        $product = $this->select('products.*, categories.name as category_name, users.full_name as seller_name')
+            ->join('categories', 'categories.id = products.category_id')
+            ->join('users', 'users.id = products.seller_id')
+            ->where('products.id', $productId)
+            ->first();
+
+        if ($product) {
+            $ratingModel = new RatingModel();
+            $product['ratings'] = $ratingModel->getProductRatings($productId, 5);
+            $product['rating_stats'] = $ratingModel->getRatingStats($productId);
+        }
+
+        return $product;
+    }
+
+    // ─── Tag Methods ──────────────────────────────────
+
+    /**
+     * Get product with tags
+     */
+    public function getWithTags($productId)
+    {
+        $product = $this->find($productId);
+        if ($product) {
+            $tagModel = new TagModel();
+            $product['tags'] = $tagModel->getProductTags($productId);
+        }
+        return $product;
+    }
+
+    /**
+     * Get products filtered by tags
+     */
+    public function filterByTags(array $tagIds = [])
+    {
+        if (empty($tagIds)) {
+            return $this->getActiveProducts();
+        }
+
+        return $this->select('DISTINCT products.*')
+            ->join('product_tags', 'product_tags.product_id = products.id')
+            ->join('categories', 'categories.id = products.category_id')
+            ->join('users', 'users.id = products.seller_id')
+            ->where('products.status', 'active')
+            ->whereIn('product_tags.tag_id', $tagIds)
+            ->findAll();
+   }
 }

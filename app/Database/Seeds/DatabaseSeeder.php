@@ -12,5 +12,7 @@ class DatabaseSeeder extends Seeder
         $this->call('CategorySeeder');
         $this->call('ProductSeeder');
         $this->call('OrderSeeder');
+        $this->call('TagSeeder');
+        $this->call('ReviewSeeder');
     }
 }

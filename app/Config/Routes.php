@@ -9,6 +9,14 @@ $routes->get('/', 'Home::index');
 $routes->get('/produk', 'Home::products');
 $routes->get('/produk/(:segment)', 'Home::productDetail/$1');
 $routes->get('/kategori/(:segment)', 'Home::category/$1');
+$routes->get('/tag/(:segment)', 'Home::tag/$1');
+
+// ─── Reviews Routes (pembeli only) ───────────────────────────────────────────
+$routes->post('reviews/store', 'Reviews::store', ['filter' => 'auth']);
+$routes->post('reviews/delete/(:num)', 'Reviews::delete/$1', ['filter' => 'auth']);
+
+// ─── API Routes ───────────────────────────────────────────────────────────────
+$routes->post('api/geocode/save', 'Home::saveGeocode');
 
 // ─── Auth Routes ─────────────────────────────────────────────────────────────
 $routes->group('auth', function ($routes) {

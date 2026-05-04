@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= esc($title ?? 'Jajan Mranggen') ?></title>
-    <meta name="description" content="Jajan Mranggen - Platform jual beli jajanan dan kuliner khas Mranggen, Demak">
+    <title><?= esc($title ?? 'Jajan Mranggen - Jajanan Khas Mranggen, Demak') ?></title>
+    <meta name="description" content="Jajan Mranggen - Platform kuliner dan jajanan khas Mranggen, Demak. Temukan produk autentik dari penjual lokal terpercaya.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -110,7 +110,7 @@
 <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
         <a class="navbar-brand" href="/">
-            <span class="brand-logo"><i class="fa-solid fa-bowl-food me-1"></i>Jajan</span>
+            <span class="brand-logo"><i class="fa-solid fa-bowl-food fa-lg me-1"></i>Jajan</span>
             <span style="color:var(--primary); font-weight:800;">Mranggen</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
@@ -195,8 +195,8 @@
     <div class="container">
         <div class="row g-4">
             <div class="col-lg-4">
-                <div class="footer-brand"><i class="fa-solid fa-bowl-food me-2"></i>Jajan Mranggen</div>
-                <p class="mt-2" style="font-size:.9rem;">Platform jual beli jajanan dan kuliner khas Mranggen, Demak. Temukan cita rasa autentik nusantara di sini.</p>
+                <div class="footer-brand"><i class="fa-solid fa-bowl-food fa-lg me-2"></i>Jajan Mranggen</div>
+                <p class="mt-2" style="font-size:.9rem;">Platform kuliner dan jajanan khas Mranggen, Demak. Temukan produk autentik dari penjual lokal terpercaya dengan sistem rating dan peta interaktif.</p>
                 <div class="d-flex gap-2 mt-3">
                     <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
