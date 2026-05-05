@@ -9,11 +9,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        :root { --primary: #FF6B35; --primary-dark: #E55A28; --secondary: #FFA500; }
+        :root { 
+            --primary: #73b57a;
+            --primary-dark: #326338;
+            --secondary: #4f9857; }
         * { font-family: 'Poppins', sans-serif; }
         body {
             min-height: 100vh;
-            background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 40%, #FFA500 100%);
+            background: linear-gradient(135deg, #326338 0%, #4f9857 40%, #73b57a 100%);
             display: flex; align-items: center; justify-content: center;
         }
         .auth-card {

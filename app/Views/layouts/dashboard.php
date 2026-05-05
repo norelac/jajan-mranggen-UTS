@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        :root { --primary:#FF6B35; --primary-dark:#E55A28; --secondary:#FFA500; --dark:#1A1A2E; --sidebar-w:260px; }
+        :root { --primary: #73b57a;
+            --primary-dark: #326338;
+            --secondary: #4f9857; 
+            --dark:#1A1A2E; --sidebar-w:260px; }
         * { font-family: 'Poppins', sans-serif; }
         body { background: #F4F6F9; display: flex; min-height: 100vh; }
 

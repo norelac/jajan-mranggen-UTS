@@ -13,17 +13,20 @@
                placeholder="Nama lengkap Anda" value="<?= old('full_name') ?>" required>
     </div>
 
-    <div class="row g-3 mb-3">
-        <div class="col-6">
+    <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+            <input type="text" id="username" name="username" class="form-control"
+                   placeholder="username" value="<?= old('username') ?>" required>
+        <!-- <div class="mb-3">
             <label for="username" class="form-label">Username</label>
             <input type="text" id="username" name="username" class="form-control"
                    placeholder="username" value="<?= old('username') ?>" required>
-        </div>
-        <div class="col-6">
+        </div> -->
+        <!-- <div class="col-6">
             <label for="phone" class="form-label">No. HP</label>
             <input type="text" id="phone" name="phone" class="form-control"
                    placeholder="08xx..." value="<?= old('phone') ?>">
-        </div>
+        </div> -->
     </div>
 
     <div class="mb-3">

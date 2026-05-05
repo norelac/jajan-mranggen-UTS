@@ -8,13 +8,13 @@
             <div class="col-lg-6">
                 <div class="mb-3">
                     <span class="badge rounded-pill px-3 py-2" style="background:rgba(255,255,255,.2); color:#fff; font-size:.85rem;">
-                        🌶️ Jajanan Autentik Khas Mranggen
+                        Kuliner di Kawasan Mranggen
                     </span>
                 </div>
-                <h1 class="mb-3">Temukan <span style="color:var(--accent)">Jajanan Lezat</span> dari Mranggen</h1>
-                <p class="mb-4">Berbagai pilihan kuliner dan jajanan tradisional khas Mranggen, Demak. Segar, lezat, dan dikirim langsung ke rumah Anda.</p>
+                <h1 class="mb-3">Temukan <span style="color:var(--light)">Jajanan Lezat</span> dari Mranggen</h1>
+                <p class="mb-4">Berbagai pilihan lokasi kuliner dan jajanan di Mranggen, Demak.</p>
                 <form action="/produk" method="GET" class="hero-search mb-3">
-                    <i class="fas fa-search text-muted"></i>
+                    <i class="fas fa-search text-muted mt-3"></i>
                     <input type="text" name="q" placeholder="Cari jajanan favoritmu...">
                     <button type="submit">Cari</button>
                 </form>
@@ -43,7 +43,7 @@
         <div class="row text-center g-3">
             <div class="col-4">
                 <div class="fw-700" style="font-size:1.6rem; color:var(--primary); font-weight:800;"><?= count($products) ?>+</div>
-                <div class="text-muted" style="font-size:.85rem;">Produk</div>
+                <div class="text-muted" style="font-size:.85rem;">Lokasi</div>
             </div>
             <div class="col-4">
                 <div style="font-size:1.6rem; color:var(--primary); font-weight:800;"><?= count($categories) ?>+</div>
@@ -60,7 +60,7 @@
 <!-- Categories -->
 <section class="py-5">
     <div class="container">
-        <h2 class="section-title">Kategori <span>Produk</span></h2>
+        <h2 class="section-title">Kategori <span>Kuliner</span></h2>
         <div class="section-divider"></div>
         <div class="row g-3">
             <?php
@@ -84,7 +84,7 @@
 <section class="py-5" style="background:#fff;">
     <div class="container">
         <div class="d-flex justify-content-between align-items-center mb-2">
-            <h2 class="section-title mb-0">Produk <span>Unggulan</span></h2>
+            <h2 class="section-title mb-0">Lokasi <span>Kuliner</span></h2>
             <a href="/produk" class="btn btn-primary-custom btn-sm">Lihat Semua <i class="fas fa-arrow-right ms-1"></i></a>
         </div>
         <div class="section-divider"></div>
@@ -127,7 +127,7 @@
     </div>
 </section>
 
-<!-- CTA Section -->
+<!-- CTA Section
 <section class="py-5">
     <div class="container">
         <div class="row g-4">
@@ -149,6 +149,6 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <?= $this->endSection() ?>

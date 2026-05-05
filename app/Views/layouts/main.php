@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= esc($title ?? 'Jajan Mranggen - Jajanan Khas Mranggen, Demak') ?></title>
+    <title><?= esc($title ?? 'Jajan Mranggen - Jajanan di Mranggen, Demak') ?></title>
     <meta name="description" content="Jajan Mranggen - Platform kuliner dan jajanan khas Mranggen, Demak. Temukan produk autentik dari penjual lokal terpercaya.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -11,10 +11,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #FF6B35;
-            --primary-dark: #E55A28;
-            --secondary: #FFA500;
-            --accent: #FFD700;
+            --primary: #73b57a;
+            --primary-dark: #326338;
+            --secondary: #4f9857;
+            --accent: #75da81;
             --dark: #1A1A2E;
             --light: #FFF8F0;
             --gray: #6c757d;
@@ -39,7 +39,7 @@
 
         /* Hero */
         .hero-section {
-            background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 50%, #FFA500 100%);
+            background: linear-gradient(135deg, #4f9857 0%, #73b57a 50%, #75da81 100%);
             color: #fff; padding: 100px 0 80px; position: relative; overflow: hidden;
         }
         .hero-section::before {
@@ -64,9 +64,10 @@
         .product-card .card-body { padding: 16px; }
         .product-card .btn-add-cart { background: var(--primary); color: #fff; border: none; border-radius: 20px; padding: 6px 16px; font-size: .85rem; font-weight: 500; transition: all .2s; }
         .product-card .btn-add-cart:hover { background: var(--primary-dark); transform: scale(1.05); }
-        .product-img-placeholder { height: 200px; background: linear-gradient(135deg, #FFE0D0, #FFB89A); display: flex; align-items: center; justify-content: center; }
+        .product-img-placeholder { height: 200px; background: linear-gradient(135deg,  #326338, #73b57a); display: flex; align-items: center; justify-content: center; }
         .product-img-placeholder i { font-size: 4rem; color: var(--primary); opacity: .6; }
 
+         
         /* Category cards */
         .category-card {
             border: none; border-radius: 16px; padding: 24px; text-align: center;
@@ -119,7 +120,7 @@
         <div class="collapse navbar-collapse" id="navMain">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link" href="/"><i class="fa-solid fa-house me-1"></i>Beranda</a></li>
-                <li class="nav-item"><a class="nav-link" href="/produk"><i class="fa-solid fa-store me-1"></i>Produk</a></li>
+                <li class="nav-item"><a class="nav-link" href="/produk"><i class="fa-solid fa-store me-1"></i>Lokasi</a></li>
             </ul>
             <div class="d-flex align-items-center gap-2">
                 <?php if (session()->get('isLoggedIn')): ?>

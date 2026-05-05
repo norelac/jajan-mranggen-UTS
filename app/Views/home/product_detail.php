@@ -24,7 +24,7 @@
     <nav aria-label="breadcrumb" class="mb-4">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/" style="color:var(--primary)">Beranda</a></li>
-            <li class="breadcrumb-item"><a href="/produk" style="color:var(--primary)">Produk</a></li>
+            <li class="breadcrumb-item"><a href="/produk" style="color:var(--primary)">Lokasi</a></li>
             <li class="breadcrumb-item active"><?= esc($product['name']) ?></li>
         </ol>
     </nav>
@@ -96,7 +96,7 @@
                 <p class="text-muted" style="line-height:1.8;"><?= nl2br(esc($product['description'] ?? 'Tidak ada deskripsi.')) ?></p>
             </div>
 
-            <!-- Specs -->
+            <!-- Specs
             <div class="row g-3 mb-4">
                 <div class="col-4">
                     <div class="text-center p-3 rounded-3" style="background:#f8f9fa;">
@@ -119,7 +119,7 @@
                         <div class="text-muted" style="font-size:.75rem;">Pengiriman</div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Add to Cart -->
             <?php if (session()->get('role') === 'pembeli' && $product['stock'] > 0): ?>
@@ -131,13 +131,13 @@
                     <input type="number" name="qty" value="1" min="1" max="<?= $product['stock'] ?>" class="form-control border-0 text-center" style="width:60px;border-radius:0;">
                     <button type="button" class="btn border-0 px-3" onclick="this.previousElementSibling.stepUp()">+</button>
                 </div>
-                <button type="submit" class="btn btn-primary-custom flex-grow-1" style="border-radius:25px;padding:12px;">
+                <!-- <button type="submit" class="btn btn-primary-custom flex-grow-1" style="border-radius:25px;padding:12px;">
                     <i class="fas fa-cart-plus me-2"></i>Tambah ke Keranjang
-                </button>
+                </button> -->
             </form>
             <?php elseif (! session()->get('isLoggedIn')): ?>
             <a href="/auth/login" class="btn btn-primary-custom w-100" style="border-radius:25px;padding:12px;">
-                <i class="fas fa-right-to-bracket me-2"></i>Login untuk Membeli
+                <i class="fas fa-right-to-bracket me-2"></i>Login untuk Mereview
             </a>
             <?php elseif ($product['stock'] == 0): ?>
             <button class="btn btn-secondary w-100 rounded-pill" disabled>Stok Habis</button>
@@ -245,7 +245,7 @@
         <div class="card border-0 rounded-4 p-4" style="background:linear-gradient(135deg,#FFF8F0,#FFF0E8);">
             <h5 class="fw-700 mb-1">Tulis Ulasan</h5>
             <?php if ($canReview && ! $hasReviewed): ?>
-                <p class="text-muted small mb-3">Bagikan pengalamanmu setelah menerima produk ini.</p>
+                <p class="text-muted small mb-3">Bagikan pengalamanmu setelah mengunjungi lokasi ini.</p>
                 <form action="/reviews/store" method="POST">
                     <?= csrf_field() ?>
                     <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
@@ -270,7 +270,7 @@
             <?php else: ?>
                 <div class="alert mb-0" style="background:#FFF;border:1px solid #f0f0f0;">
                     <i class="fas fa-lock me-2 text-muted"></i>
-                    <span class="text-muted small">Anda hanya dapat mengulas produk yang sudah Anda terima. Pesan sekarang untuk bisa memberikan ulasan!</span>
+                    <span class="text-muted small">Anda hanya dapat mengulas lokasi yang sudah Anda kunjungi. Kunjungi lokasi sekarang untuk bisa memberikan ulasan!</span>
                 </div>
             <?php endif; ?>
         </div>
@@ -280,7 +280,7 @@
     <!-- Related Products -->
     <?php if (! empty($related)): ?>
     <div class="mt-5">
-        <h3 class="section-title">Produk <span>Serupa</span></h3>
+        <h3 class="section-title">Lokasi <span>Serupa</span></h3>
         <div class="section-divider"></div>
         <div class="row g-4">
             <?php foreach ($related as $rel): ?>

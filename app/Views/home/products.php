@@ -7,9 +7,9 @@
         <div class="col">
             <h1 class="section-title">
                 <?php if (isset($tag)): ?>
-                    Produk dengan Tag <span>#<?= esc($tag['name']) ?></span>
+                    Lokasi dengan Tag <span>#<?= esc($tag['name']) ?></span>
                 <?php else: ?>
-                    Semua <span>Produk</span>
+                    Semua <span>Lokasi</span>
                 <?php endif; ?>
             </h1>
             <div class="section-divider"></div>
@@ -20,10 +20,10 @@
     <div class="card border-0 rounded-4 shadow-sm mb-4 p-3">
         <form action="/produk" method="GET" class="row g-3 align-items-end">
             <div class="col-md-5">
-                <label class="form-label fw-600 small">Cari Produk</label>
+                <label class="form-label fw-600 small">Cari Lokasi</label>
                 <div class="input-group">
                     <span class="input-group-text bg-white"><i class="fas fa-search text-muted"></i></span>
-                    <input type="text" name="q" class="form-control" placeholder="Nama produk..."
+                    <input type="text" name="q" class="form-control" placeholder="Nama lokasi..."
                            value="<?= esc($keyword ?? '') ?>" style="border-left:none;">
                 </div>
             </div>
@@ -69,7 +69,7 @@
 
     <!-- Results info -->
     <p class="text-muted mb-3 small">
-        Menampilkan <strong><?= count($products) ?></strong> produk
+        Menampilkan <strong><?= count($products) ?></strong> lokasi
         <?php if (!empty($keyword)): ?> untuk kata kunci "<strong><?= esc($keyword) ?></strong>"<?php endif; ?>
         <?php if (!empty($activeTag)): ?> dengan tag "<strong>#<?= esc($activeTag) ?></strong>"<?php endif; ?>
     </p>
@@ -77,9 +77,9 @@
     <?php if (empty($products)): ?>
         <div class="text-center py-5">
             <i class="fas fa-search fa-4x text-muted mb-3 d-block opacity-25"></i>
-            <h5 class="text-muted">Produk tidak ditemukan</h5>
+            <h5 class="text-muted">Lokasi tidak ditemukan</h5>
             <p class="text-muted">Coba kata kunci lain atau pilih kategori/tag yang berbeda</p>
-            <a href="/produk" class="btn btn-primary-custom mt-2 rounded-pill px-4">Lihat Semua Produk</a>
+            <a href="/produk" class="btn btn-primary-custom mt-2 rounded-pill px-4">Lihat Semua Lokasi</a>
         </div>
     <?php else: ?>
         <div class="row g-4">
